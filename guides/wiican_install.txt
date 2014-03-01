@@ -1,0 +1,224 @@
+
+
+    Partners
+    Support
+    Community
+    Ubuntu.com
+
+Ubuntu Documentation
+
+    Official Documentation
+    Community Help Wiki
+
+    Login to edit
+
+CWiiD
+
+Contents
+
+    Introduction
+    Installation
+    Controlling the Wii Remote
+        Using remote as mouse
+    Unpairing from the Wii console
+    Sensor bar alternatives
+    Config files
+    Running wminput as user (not root)
+    Running wminput as a daemon
+        Auto starting with X
+    Problems
+
+Introduction
+
+Since the Wii Remote uses bluetooth to communicate with the console, it's relatively straightforward to use it to control a computer. The most obvious way is similar to the main menu on the Wii console - point the remote where you want the cursor to go, and press A and B to left and right click. There are also options for tilting the Wiimote to move the cursor around, which is useful if you don't have a sensor bar available.
+
+Installation
+
+sudo apt-get install libcwiid1 lswm wmgui wminput
+
+Controlling the Wii Remote
+
+Now it's possible to load a gui which shows what the Wiimote is doing:
+
+wmgui
+
+Select "connect" from the file menu, press 1+2 when prompted then OK. Lights and rumble can be turned on and off from the controls menu, and which inputs are displayed from the settings menu. Using this, you can test the IR camera, the accelerometers and check the inputs from the Nunchuck or Classic Controller.
+
+Next up is the mouse "emulator" which allows you to control the mouse with the Wiimote. At this point, it can be run with default settings (tilting the Wiimote moves the pointer, A and B work as left and right click).
+
+The uinput module needs to be loaded into the kernal first. This can either be done manually after every reboot:
+
+sudo modprobe uinput
+
+or uinput can be put into /etc/modules:
+
+gksudo gedit /etc/modules
+
+Mine looks like this:
+
+# /etc/modules: kernel modules to load at boot time.
+#
+# This file contains the names of kernel modules that should be loaded
+# at boot time, one per line. Lines beginning with "#" are ignored.
+
+lp
+uinput
+
+Using remote as mouse
+
+Now, we can start using the Wiimote to control the mouse. First, find the address of the Wiimote (this is optional, but speeds up connecting). Press 1+2 on the Wiimote and run:
+
+lswm
+
+This should return the address of the Wiimote (something like 00:1F:32:95:EF:B0). This will be different for each Wiimote. If it doesn't work, try again, ensuring the lights on the Wiimote are still flashing when you run lswm.
+
+Moving the mouse by tilting the Wiimote
+
+Press the 1+2 buttons on the Wiimote and run:
+
+sudo wminput 00:1F:32:95:EF:B0
+
+replacing 00:1F:32:95:EF:B0 with the address of your Wiimote. This can be run without the address, but will take longer to connect.
+
+Moving the mouse by pointing the Wiimote at an IR source
+
+gksudo gedit /etc/cwiid/wminput/ir_ptr
+
+Find these lines:
+
+Plugin.ir_ptr.X = ~ABS_X
+Plugin.ir_ptr.Y = ~ABS_Y
+
+and replace them with:
+
+Plugin.ir_ptr.X = ABS_X
+Plugin.ir_ptr.Y = ABS_Y
+
+Press 1+2 on the Wiimote and from a terminal run this:
+
+wminput -c ir_ptr 00:1F:32:95:EF:B0
+
+Unpairing from the Wii console
+
+It's worth noting that if the Wii is turned off, so is the sensor bar, so you have to have it turned on. This means that if your Wiimotes are paired with your console, when you press 1 and 2, they'll automatically link to the console, rather than your computer. To avoid this problem, you can unpair all of your Wiimotes from the console, then re-pair just the ones that you want to use for Wii games. Just after turning on the console, at the Health and Safety screen, hold down the red Sync button under the front panel for 15 seconds. To re-pair a Wiimote with the console, press the red button under the battery cover to enter discoverable mode, then press the red button on the console.
+
+Sensor bar alternatives
+
+Since the sensor bar consists of a number of IR LEDs (in two groups, one at each end of the bar), which the Wii remote detects as two dots, it's relatively easy to make an alternative sensor bar for use away from the Wii. Ideally, you want two IR point sources, such as IR LEDs, however candles, lighters, light bulbs etc will work as well. Also, CWiiD only actually requires a single point to track, so it is possible to just point the remote at a room light, and track from that.
+
+There are a number of companies selling various Wii accessories, such as replacement sensor bars, which could be used, however I plan to buy some IR LEDs and mount them on my laptop, and connect them to a USB port.
+
+Config files
+
+If you want to change the config files, they're in /etc/cwiid/wminput - it'll load default unless something else is specified. After install, default is linked to acc_ptr, so the acclerometers control the pointer. buttons contains the mappings for the buttons to keys, and is linked by the other config files. I've made a new config file, which is basically a copy/paste from buttons and ir_ptr:
+
+#IR pointer 
+
+Plugin.ir_ptr.X = ~ABS_X
+Plugin.ir_ptr.Y = ~ABS_Y
+
+#buttons
+
+Wiimote.A               = BTN_LEFT
+Wiimote.B               = BTN_RIGHT
+Wiimote.Up              = KEY_KATAKANA
+Wiimote.Down    = KEY_KPENTER
+Wiimote.Left    = KEY_HENKAN
+Wiimote.Right   = KEY_MUHENKAN
+Wiimote.Minus   = KEY_BACK
+Wiimote.Plus    = KEY_FORWARD
+Wiimote.Home    = KEY_HOME
+Wiimote.1               = KEY_SLASH
+Wiimote.2               = KEY_SPACE
+
+#Nunchuk.C              = BTN_LEFT
+#Nunchuk.Z              = BTN_RIGHT
+#
+#Classic.Up             = KEY_UP
+#Classic.Down   = KEY_DOWN
+#Classic.Left   = KEY_LEFT
+#Classic.Right  = KEY_RIGHT
+#Classic.Minus  = KEY_BACK
+#Classic.Plus   = KEY_FORWARD
+#Classic.Home   = KEY_HOME
+#Classic.A              = BTN_LEFT
+#Classic.B              = BTN_RIGHT
+#Classic.X              = 
+#Classic.Y              = 
+#Classic.ZL             = 
+#Classic.ZR             = 
+#Classic.L              = 
+#Classic.R              = 
+
+But I'm currently having a few problems with it. The up/down/left/right maps aren't assigned sensibly - hence the rather odd bindings, however these values seem to work. The right click has also stopped working, despite not changing anything relating to it in the config file.
+
+There is a file in with the source ~/Wii/cwiid-0.5.03/wminput/action_enum.txt which should contain all the codes for keys, however it seems to be significantly out - at least for a GB keyboard. The full list for your system can be found at /usr/include/linux/input.h
+
+Running wminput as user (not root)
+
+Normally wminput has to be run as root as the uinput device requires root priviliges. To allow any user to access it add a rule to /etc/udev/rules.d to change the mode of the device to "0600", e.g
+
+ sudo sh -c 'echo KERNEL\=\=\"uinput\", MODE\=\"0666\" > /etc/udev/rules.d/71-wiiremote.rules' 
+
+then reboot or restart the udev service
+
+ sudo service udev restart 
+
+Running wminput as a daemon
+
+wminput -d 00:1F:32:95:EF:B0
+
+Will run wminput in daemon mode - quiet output, waits indefinitely and continually retries to reconnect. Press 1+2 on the remote to connect, the remote powerbutton to disconnect.
+
+nohup wminput -d 00:1F:32:95:EF:B0&
+
+Will launch it quietly in the background.
+
+Auto starting with X
+
+The following desktop file placed in .config/autostart/wiiremote.desktop will launch it when X starts. This is very useful for media-centers which may not have a keyboard or mouse attached.
+
+[Desktop Entry]
+Name=Wii Remote Service
+Comment=Converts Wii Remote to Mouse
+GenericName=WiiRemote
+Exec= wminput -d 00:1F:C5:30:1F:C8
+Type=Application
+Encoding=UTF-8
+
+NOTE: The (correct) MAC address of your Wii Remote appears to be mandatory, as "wminput -d" with no MAC address following always fails to connect. This information is correct at time of writing.
+
+Problems
+
+There are a few things I'm not quite happy with here.
+
+I'd like to have a better way to reload xorg.conf than restarting X - especially for a howto that's being followed from a webpage!
+
+The keymappings in the config file don't work sensibly. The key mappings given don't map to the keys they claim to.
+
+CategoryBluetooth CategoryGames CategoryHardware
+
+CWiiD (last edited 2013-05-02 00:02:26 by moergaes)
+
+The material on this wiki is available under a free license, see Copyright / License for details
+You can contribute to this wiki, see Wiki Guide for details
+
+
+
+    Install the repository GPG key:
+
+    # wget -q -O- http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -
+
+    Add the following line to /etc/apt/sources.list:
+
+    deb http://archive.getdeb.net/ubuntu/ saucy-getdeb apps
+
+    Update the package index:
+
+    # sudo apt-get update
+
+    Install wiican deb package:
+
+    # sudo apt-get install wiican
+
+

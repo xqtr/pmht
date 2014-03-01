@@ -1,0 +1,2 @@
+cd ~/pmht
+lxterminal --title="PMHT" --command="./emucom"

@@ -1,0 +1,29 @@
+There are at least two ways to do this. The quick and easy option is to use the 'Generate package download script' option in Synaptic. Mark the packages you want to install, then select this option from the File menu, which will generate a shell script that you can run to download the packages. Then you transfer the packages to your Ubuntu box and either put them in /var/cache/apt/archives or use the 'Add downloaded packages' menu option in Synaptic to install them. The main disadvantage of this method is that the script requires wget, so you need this installed on the computer you use for the downloading. An alternative is to use apt-get from the command line with the --print-uris option. Apt-get will automatically try to install all dependencies, and the --print-uris option outputs the URIs of all the files it needs. You can use grep and cut to extract the URIs from the output with
+
+apt-get --print-uris --yes install pkgspec | grep ^\' | cut -d\' -f2 >downloads.list
+
+
+Get packages and dependencies for installing offline
+
+Q I don't currently have a net connection to my Ubuntu box, but I do have access to a fast connection at college. Is there a tool I can use on the box that's connected to the net (a Windows PC) to grab dependencies? What I'm looking for is a way to enter the name of the software that I want to install and get back a list of dependencies that I can run in a Windows app to fetch the files and any others that the next one depends on.
+
+A There are at least two ways to do this. The quick and easy option is to use the 'Generate package download script' option in Synaptic. Mark the packages you want to install, then select this option from the File menu, which will generate a shell script that you can run to download the packages. Then you transfer the packages to your Ubuntu box and either put them in /var/cache/apt/archives or use the 'Add downloaded packages' menu option in Synaptic to install them. The main disadvantage of this method is that the script requires wget, so you need this installed on the computer you use for the downloading. An alternative is to use apt-get from the command line with the --print-uris option. Apt-get will automatically try to install all dependencies, and the --print-uris option outputs the URIs of all the files it needs. You can use grep and cut to extract the URIs from the output with
+
+apt-get --print-uris --yes install pkgspec | grep ^\' | cut -d\' -f2 >downloads.list
+
+For example, running this with 'postgrey' instead of the word 'pkgspec' creates a file containing
+
+http://security.ubuntu.com/ubuntu/pool/universe/libn/libnet-dns-perl/libnet-dns-perl_0.59-1build1.1_i386.deb
+http://gb.archive.ubuntu.com/ubuntu/pool/universe/libb/libberkeleydb-perl/libberkeleydb-perl_0.31-1_i386.deb
+http://gb.archive.ubuntu.com/ubuntu/pool/main/libd/libdigest-sha1-perl/libdigest-sha1-perl_2.11-1build1_i386.deb
+http://gb.archive.ubuntu.com/ubuntu/pool/main/libd/libdigest-hmac-perl-dfsg/libdigest-hmac-perl_1.01-5_all.deb
+http://gb.archive.ubuntu.com/ubuntu/pool/universe/libi/libio-multiplex-perl/libio-multiplex-perl_1.08-3_all.deb
+http://gb.archive.ubuntu.com/ubuntu/pool/universe/libn/libnet-cidr-perl/libnet-cidr-perl_0.11-1_all.deb
+http://gb.archive.ubuntu.com/ubuntu/pool/universe/libn/libnet-ip-perl/libnet-ip-perl_1.25-2_all.deb
+http://gb.archive.ubuntu.com/ubuntu/pool/universe/libn/libnet-server-perl/libnet-server-perl_0.94-1_all.deb
+http://gb.archive.ubuntu.com/ubuntu/pool/universe/p/postgrey/postgrey_1.27-4_all.deb
+
+As you can see, this includes the dependencies as well as the program itself. Copy download.list to a USB flash drive to take it to the computer with the faster internet connection. Many FTP programs and download managers will read a list of download URLs from a file, such as
+
+wget --input-file myurilist
+

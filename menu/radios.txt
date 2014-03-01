@@ -1,0 +1,155 @@
+902 FM|mms://mediaserver2.otenet.gr/radio902gr
+98 FM|http://98fm.ath.cx:8000/live48.m3u
+Alpha Radio|mms://lu-nt-stream01.bce.lu/Alpha989
+Freedom|mms://a1251.l4434923250.c44349.g.lm.akamaistream.net/D/1251/44349/v0001/reflector:23250
+Ant1|http://ant1.live24.gr/ant1
+Athens Deejay|mms://213.186.58.26/deejay
+Athens FM|mms://178.162.134.33/afm?MSWMExt=.asf
+Atlantis FM|http://pasradio.com:7120/
+Best Radio|mms://best.live24.gr/best1222?MSWMExt=.asf
+Derti|mms://derti.live24.gr/derty1000?MSWMExt=.asf
+Flash|mms://flash.live24.gr/flash5252?MSWMExt=.asf
+Free Angel|http://174.36.237.66:8014
+Galaxy 92|mms://galaxy.live24.gr/galaxy9292?MSWMExt=.asf
+Je t'aime|mms://live.onestreaming.com/jetaime?MSWMExt=.asf
+John Greek|mms://johngreek.live24.gr/polis2795?MSWMExt=.asf
+Kiss FM|mms://kissfm.live24.gr/kiss2111?MSWMExt=.asf
+Kosmos|mms://a1232.l3271935231.c32719.g.lm.akamaistream.net/D/1232/32719/v0001/reflector:35231
+Love Radio|mms://loveradio.live24.gr/loveradio-1000?MSWMExt=.asf
+Mad Radio|mms://media.mad.gr/madradio
+Nitro Radio|mms://nitro.live24.gr/nitro4555?MSWMExt=.asf
+Nova Sport FM|mms://sportfm.live24.gr/sportfm7712?MSWMExt=.asf
+Oasis Fm|mms://oasis.live24.gr/oasis8888?MSWMExt=.asf
+Orange|mms://orange.live24.gr/orange9320?MSWMExt=.asf
+Palmos On Air|http://s6.onweb.gr:8010/
+Paradise Radio|http://s1.onweb.gr:8850/
+Radio Gold|mms://radiogold.live24.gr/radiogold?MSWMExt=.asf 
+Real FM|mms://realfm.live24.gr/realfm?MSWMExt=.asf
+Red FM|mms://a660.l3168030659.c31680.g.lm.akamaistream.net/d/660/31680/v0001/reflector:30659
+Rock FM|mms://rockfm.mediabox.gr/Rockfm?MSWMExt=.asf
+Sentra FM|mms://sentrafm.live24.gr/sentrafm
+Sfera|mms://sfera.live24.gr/sfera4132?MSWMExt=.asf
+V FM|mms://nordr.live24.gr/village883?MSWMExt=.asf
+Ακτίνα|http://s2.onweb.gr:8632/listen.pls
+Δίεση|mms://diesi.live24.gr/diesi1013?MSWMExt=.asf
+Δίφωνο|http://icecast.reth.gr:8300/live_3rdd
+Δρόμος FM|mms://nordr.live24.gr/dromos898?MSWMExt=.asf
+Εν Λευκώ|mms://enleuko.live24.gr/enleuko877?MSWMExt=.asf
+Ε.ΡΑ. Δεύτερο|mms://a1782.l3271951781.c32719.g.lm.akamaistream.net/D/1782/32719/v0001/reflector:51781
+Ε.ΡΑ. Σπορ|mms://a1113.l3271935112.c32719.g.lm.akamaistream.net/D/1113/32719/v0001/reflector:35112
+Ε.ΡΑ. Τρίτο|mms://a1318.l3271931317.c32719.g.lm.akamaistream.net/D/1318/32719/v0001/reflector:31317
+Κρητική Ραδιοφωνία|http://s4.onweb.gr:8476/listen.pls
+Μελωδία|http://s4.onweb.gr:8050/listen.pls
+ΝΕΤ|mms://a1709.l3271943708.c32719.g.lm.akamaistream.net/D/1709/32719/v0001/reflector:43708
+Πειραϊκή Εκκλησία|http://stream.greekradios.gr:2016/listen.pls
+ΡΣ Εκκλησίας της Ελλάδος|mms://mediaserver.otenet.gr/ecclesia
+Ράδιο Blackman|http://rs9.radiostreamer.com:8210/listen.pls
+Ράδιο Άστυ|http://shoutcast.24radio.gr:8072/listen.pls
+Ρυθμός|mms://nordr.live24.gr/rythmos949live
+ΣΚΑΙ|mms://a1505.l827459504.c8274.g.lm.akamaistream.net/D/1505/8274/v0001/reflector:59504
+Στο Κόκκινο|http://stokokkino.gr:8000/stream.m3u
+Φιλία|mms://a1367.l3271923366.c32719.g.lm.akamaistream.net/D/1367/32719/v0001/reflector:23366
+Φλόγα|mms://live.onestreaming.com/radiofloga 
+Arion|mms://golive.onestreaming.com/arion2
+Style FM Αργολίδας|mms://live.onestreaming.com/stylefm
+Ράδιο Ξηρόμερο|http://188.40.131.14:8714/listen.pls
+Δίαυλος Χαλκίδας|http://74.63.48.245:8035/listen.pls
+Life FM Κέρκυρας|http://s1.onweb.gr:8836/listen.pls
+Ant1 Αιγαίου|mms://live.onestreaming.com/aegeanant1?MSWMExt=.asf
+Ε.ΡΑ. Αιγαίου|mms://era.aegean.gr/era
+Πάρος FM|http://s1.onweb.gr:8098/listen.pls
+Orange|http://orangeradio.no-ip.biz:8000/listen.pls
+Top 105|http://208.43.115.44:8072/listen.pls
+Action Radio|mms://live.onestreaming.com/actionradio
+Best 90.7|mms://907ioannina.live24.gr/907ioannina
+Ioannina DeeJay|http://shoutcast.24radio.gr:8080/
+Safari FM|http://94.23.159.115:8088/listen.pls
+Sky Radio|mms://64.202.98.81/skyradio
+Star FM|http://208.43.115.44:9570/
+Studio E|mms://live.onestreaming.com/studioe
+Βήμα FM|http://74.63.48.245:8070/
+Ηχώ|mms://live.onestreaming.com/hxoioan
+Ράδιο Ήπειρος|http://174.36.237.66:9450/
+Ράδιο Φάρος|http://s6.onweb.gr:8056/listen.pls
+Ρωμαίος FM|http://208.43.121.133:9400/listen.pls
+Ράδιο Πρέβεζα|http://radiopreveza.mine.nu:8000/listen.pls
+Star FM Γρεβενών|mms://live.onestreaming.com/starfmdm
+Ράδιο Γρεβενά|mms://live.onestreaming.com/radiogrevena
+NRG Radio|mms://m1.onweb.gr/nrg889
+Star FM Δράμας|mms://radiofeeds1.mediabox.gr/startvfm
+Energy FM|http://s1.onweb.gr:8412/listen.pls
+Skyline 982|http://87.117.198.140:8026/listen.pls
+Energy FM Καβάλας|http://212.117.164.98:8008/listen.pls
+Στόχος FM|mms://m2.onweb.gr/stoxosfm
+Ράδιο Καστοριά|http://87.117.198.140:8062/listen.pls
+Ράδιο Σύνορα|http://s1.onweb.gr:8064/listen.pls
+Diva FM|http://72.55.146.84:8004/listen.pls
+Siera FM|http://72.55.146.84:8020/
+Viva FM|http://87.117.198.140:8006/listen.pls
+Πελλα FM|http://s5.onweb.gr:8002/listen.pls
+Σκάι 92.6|http://s1.onweb.gr:8866/listen.pls
+Radio 1|mms://101fm.dyndns.tv:8002/
+Capital|mms://live.onestreaming.com/capital977
+Max FM|http://78.46.46.214:7064/listen.pls
+Eros Radio|http://78.46.46.214:7046/listen.pls
+102 FM - ΕΡΤ3|mms://a1758.l3271933757.c32719.g.lm.akamaistream.net/D/1758/32719/v0001/reflector:33757
+1055 Rock|http://www.1055rock.gr/playlist.asx
+1055 Rock (2)|http://radio.onweb.gr:8078/listen.pls
+9.58 - ΕΡΤ3|mms://62.103.164.228:8080/et3-958
+Cool FM|http://sc.greekstream.net:4010/listen.pls
+FM 100|http://78.46.46.215:7124/listen.pls
+Heart FM|http://78.129.143.157:8000/heartfm
+Imagine897|http://imagine.1stepstream.com:8000/live.m3u
+Libero|http://74.63.48.245:8081
+Off Radio|http://offradio.greekstream.net:80/
+Republic|http://89.149.244.47:8500/listen.pls
+RockRadio|http://83.133.127.198:9096/
+RSO|http://live.isolservers.com:8200/
+Safari FM|http://83.133.127.198:8989/
+Star FM|http://78.129.143.157:8000/starfm
+Studio 3|http://s1.onweb.gr:8408/listen.pls
+Zoo Radio|http://stream.greekradios.gr:9060/listen.pls
+Αθλητικό Metropolis|http://174.120.46.26:9000/listen.pls
+Sunshine|http://74.63.48.245:8083/listen.pls
+Ερωτικός FM|http://www.eroticos.gr/live.pls
+Λυδία η Φιλιππησία|mms://energy15.egihosting.com/321488
+Μελωδικός|http://stream.greekradios.gr:2042/listen.pls
+Μουσικός Γαλαξίας|http://s1.onweb.gr:8034/listen.pls
+Καλαμαριά FM|http://sc.greekstream.net/listen.pls
+Όλα FM|http://live.isolservers.com:8300/listen.pls
+Πανόραμα 9 84|mms://live.onestreaming.com/panoramafm
+Παλμός|http://stream.greekradios.gr:2044/listen.pls
+Παραδοσιακός Studio 3|http://s1.onweb.gr:8408/listen.pls
+Πειρατικός|mms://golive.onestreaming.com/peiratikos?MSWMExt=.asf
+Ράδιο Έκφραση|http://sc.greekstream.net:4012/listen.pls
+Ράδιο Θεσσαλονίκη|http://178.32.72.194:8060/rthes
+Ραδιοκύματα|http://s1.onweb.gr:8812/listen.pls
+ΡΣ Helexpo ΔΕΘ|http://s1.onweb.gr:8436/listen.pls
+Real FM|http://83.133.127.198:8999/listen.pls
+Best Radio|mms://live.onestreaming.com/best947
+KISS FM Crete|http://s6.onweb.gr:8032/listen.pls
+Ερωτόκριτος|http://s2.onweb.gr:8652/listen.pls
+Κρητικός FM|http://s1.onweb.gr:8852/listen.pls
+Ράδιο Κρήτη|mms://62.1.1.141/radiokriti
+Club FM|mms://live.onestreaming.com/club937
+Δίαυλος Κρήτης|mms://diavlos969.live24.gr/diavlos969
+Ραδιοκύματα|mms://live.onestreaming.com/radiokimata
+Τάλος FM|mms://hotsoft.ws/talosfm
+Magic FM|mms://hotsoft.ws:8086/magicfm
+Radio 99.6|mms://live.onestreaming.com/radio996
+D-code|http://s3.onweb.gr:8032/listen.pls
+Νότος FM|http://s4.onweb.gr:8484/listen.pls
+Enjoy Radio|http://s3.onweb.gr:8046/listen.pls
+Galaxy|mms://live.onestreaming.com/galaxy1061?MSWMExt=.asf
+Mojo Radio|mms://broadcast.hol.gr/mojoradio
+Έντεχνος FM|http://shoutcast.24radio.gr:8068/listen.pls
+Sfera|http://79.129.8.153:7020
+You FM|mms://live.onestreaming.com/youfm?MSWMExt=.asf
+Wave FM|http://r3.webradiostreams.com:7080/listen.pls
+MFM|http://79.129.8.153:7030
+Ιόνιον FM|mms://broadcast.hol.gr/IonionFMU
+Master FM|http://shoutcast.24radio.gr:8014/listen.pls
+Χρώμα FM|http://s6.onweb.gr:8058/listen.pls
+ΣΚΑΙ Πάτρας|http://r4.webradiostreams.com:7002/listen.pls
+Ραδιο Πάτρα|mms://live.onestreaming.com/radiopatra
+Ωμέγα|http://www.omegafm.gr:1755/omegafm.m3u 
