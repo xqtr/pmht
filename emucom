@@ -26,12 +26,12 @@ function checkpassword () {
 oldpass=$(cat $menu/password)
 if [ "$oldpass" != "" ]
 then 
-  dialog --passwordbox  " To proceed you must enter the password... " 8 50 2>/tmp/pmht_tmp.$$
-  newpass=$(cat /tmp/pmht_tmp.$$)
+  dialog --passwordbox  " To proceed you must enter the password... " 8 50 2>$tmp/pmht_tmp.$$
+  newpass=$(cat $tmp/pmht_tmp.$$)
   if [ "$oldpass" != "$newpass" ]
   then
     dialog --msgbox "Wrong Password!!!" 5 30
-    rm -f /tmp/pmht_tmp.$$
+    rm -f $tmp/pmht_tmp.$$
     exec $ecdir/emucom
   fi
 fi
@@ -40,10 +40,10 @@ fi
 maximize
 
 dialog --backtitle "Poor Mans Home Theater" \
---begin 3 49 --infobox "     $(date +"%x")\n\n$(cal)" 12 25 \
---and-widget --begin 3 3 --no-tags --menu "Main Menu" 18 30 11 \
+--no-cancel --no-tags --menu "Main Menu" 22 40 15 \
 1 "Console Emulators" \
 2 "News" \
+10 "Weather" \
 3 "Movies" \
 8 "Online TV" \
 9 "Online Radio" \
@@ -53,11 +53,12 @@ dialog --backtitle "Poor Mans Home Theater" \
 7 "Restricted" \
 C "Activate Screensaver" \
 S Settings \
-X Exit  2> answer
+H "Help" \
+X Exit  2> $tmp/answer
 
 if [ "$?" = "0" ]
 then
-	ch=$(cat answer)
+	ch=$(cat $tmp/answer)
 	case $ch in
 	# /home is selected
 	  1) exec $menu/emulators.sh;;
@@ -72,9 +73,11 @@ then
 	     exec $menu/restricted.sh;;
 	  8) exec $menu/otv.sh;;
           9) exec $menu/oradio.sh;;
+	  10) exec $menu/weather.sh;;
  	  C) cmatrix -s -b -C $(cat $ecdir/theme)
 	     exec $ecdir/emucom;;
 	  S) exec $menu/settings.sh;;
+	  H) exec $menu/help.sh;;
 	  X) exec $menu/exit.sh;;
 	  *) exec $ecdir/emucom;;
         esac

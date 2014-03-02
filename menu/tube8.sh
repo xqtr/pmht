@@ -13,12 +13,12 @@ youtube-dl -o - "$1" | mplayer -ao alsa -
 #    DIALOG=Xdialog
 #  fi
 
-curl -s www.tube8.com | grep '<div id="video_' | sed -n -e 's/.*<a href=\"\(.*\)\"\ >.*/\1/p' > /tmp/vids.$$
+curl -s www.tube8.com | grep '<div id="video_' | sed -n -e 's/.*<a href=\"\(.*\)\"\ >.*/\1/p' > $tmp/vids.$$
 
-if [ "$(cat /tmp/vids.$$)" = "" ]
+if [ "$(cat $tmp/vids.$$)" = "" ]
 then 
   dialog --msgbox "No Videos found..." 5 30
-  rm -f /tmp/vids.$$
+  rm -f $tmp/vids.$$
   exec $menu/restricted.sh
 fi
 
@@ -27,18 +27,18 @@ while read line
 do
 id=$(echo $line | cut -d"/" -f6)
 name=$(echo $line | cut -d"/" -f5)
-echo $id $name >>/tmp/options.$$ 
+echo $id $name >>$tmp/options.$$ 
   i=`expr $i + 1`
-done </tmp/vids.$$
-OPTIONS=`cat /tmp/options.$$`
+done <$tmp/vids.$$
+OPTIONS=`cat $tmp/options.$$`
 
 
 # present menu options
-dialog --title " Tube8.com " --menu "Select video:" $l1 $col $l2 ${OPTIONS} 2> answer
+dialog --title " Tube8.com " --cancel-label "Back" --menu "Select video:" $l1 $col $l2 ${OPTIONS} 2> $tmp/answer
 
 if [ "$?" = "0" ]
 then
-	ch=$(cat /tmp/vids.$$ | grep $(cat answer))
+	ch=$(cat $tmp/vids.$$ | grep $(cat $tmp/answer))
 echo $ch
 sleep 5
 
@@ -51,6 +51,6 @@ sleep 5
 else
         exec $ecdir/emucom
 fi
-rm -f /tmp/vids.$$
-rm -f /tmp/options.$$
+rm -f $tmp/vids.$$
+rm -f $tmp/options.$$
 exit

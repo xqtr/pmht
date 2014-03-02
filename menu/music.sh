@@ -10,13 +10,13 @@ source ./pref.cfg
 #  fi
 
 
-ps -A | grep mocp > null
+ps -A | grep mocp > $tmp/null
 if [ "$?" != "0" ]
   then
-    mocp -S > null
+    mocp -S > $tmp/null
 fi
 
-dialog --no-tags --menu " Music & Sound " 20 30 16 \
+dialog --no-tags --cancel-label "Back" --menu " Music & Sound " 20 30 16 \
 1 "Manage Music [mocp]" \
 2 "Play/Pause" \
 3 "Next Song" \
@@ -29,11 +29,11 @@ dialog --no-tags --menu " Music & Sound " 20 30 16 \
 a "Volume Down 10%" \
 b "Volume Off" \
 c "Shutdown MOCP" \
-X "Back to Main Menu" 2> answer
+X "Back to Main Menu" 2> $tmp/answer
 
 if [ "$?" = "0" ]
 then
-	ch=$(cat answer)
+	ch=$(cat $tmp/answer)
 	case $ch in
 	# /home is selected
 	  1) mocp
@@ -51,8 +51,8 @@ then
              exec $menu/music.sh;; 
           7) mocp -k -10
              exec $menu/music.sh;; 
-          8) dialog --rangebox "Set Volume" 2 70 0 100 50 2> answer
-	     vol=$(cat answer)
+          8) dialog --rangebox "Set Volume" 2 70 0 100 50 2> $tmp/answer
+	     vol=$(cat $tmp/answer)
 	     mocp -v $vol
              exec $menu/music.sh;; 
           9) mocp -v +10%

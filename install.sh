@@ -22,13 +22,15 @@ sudo rm -f /etc/apt/sources.list.d/sdlmame4ubuntu.*
 sudo add-apt-repository ppa:c.falco/mame
 sudo add-apt-repository ppa:c.falco/umame
 sudo apt-get update
-sudo apt-get install mame
+sudo apt-get install -y mame
 
 sudo apt-get install -y python-pip python-dev build-essential
 sudo pip install --upgrade pip
 sudo pip install --upgrade virtualenv 
+sudo pip install mps
+sudo pip install pms-youtube
 sudo apt-get install -y youtube-dl
-sudo apt-get install -y rtmpdump
+sudo apt-get install rtmpdump
 
 sudo pip install livestreamer
 
@@ -36,6 +38,7 @@ echo blue > $ecdir/theme
 #cp $menu/.dialogrc ~/.dialogrc
 chmod +x ./menu/*.sh
 chmod +x emucom
+chmod +x pmht.sh
 chmod +x ./apps/fusion
 chmod +x ./apps/osmose996
 dialog --title " Installation Complete " --msgbox "Installation is now complete. Make sure that no errors appeared during package installation. After this, configure each emulator and set appropriate paths to file preg.cfg\n\nEnjoy..." 10 60

@@ -13,7 +13,7 @@ function infobox {
   dialog --msgbox "$1" 10 40
 }
 
-dialog --clear --column-separator ! --no-tags --menu "Console Emulators" 22 70 23  \
+dialog --clear --cancel-label "Back" --column-separator ! --no-tags --menu "Console Emulators" 22 70 23  \
 1 "GameBoy Advanced" \
 2 "GameBoy Color" \
 3 "GameCube" \
@@ -25,12 +25,11 @@ dialog --clear --column-separator ! --no-tags --menu "Console Emulators" 22 70 2
 9 "Sega Saturn" \
 10 "Sega Mega Drive" \
 11 "Multiple Arcade Machine Emulator (MAME)" \
-12 "Playstation One" \
-X "Back to Main Menu" 2> answer
+12 "Playstation One" 2> $tmp/answer
 
 if [ "$?" = "0" ]
 then
-	ch=$(cat answer)
+	ch=$(cat $tmp/answer)
 	case $ch in
 	# /home is selected
 	  1) exec $menu/gba.sh;;
@@ -45,9 +44,9 @@ then
 	  9) infobox "This function is not enabled yet"
 	     exec $menu/emulators.sh;;
 	  10) exec $menu/megadrive.sh;;
-	  11) exec $menu/mame.sh;;
+	  11) mame -listfull > $tmp/gamelist.txt
+	      exec $menu/mame.sh;;
 	  12) exec $menu/psx.sh;;
-	  X) exec $ecdir/emucom;;
         esac
  
 # Cancel is pressed

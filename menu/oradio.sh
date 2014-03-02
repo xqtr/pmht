@@ -11,28 +11,29 @@ source ./pref.cfg
 #  fi
 
 i=1
-rm -f /tmp/options.$$
+rm -f $tmp/options.$$
 while read line
 do
-  echo $i ${line// /_} >>/tmp/options.$$
+  echo $i ${line// /_} >>$tmp/options.$$
   i=`expr $i + 1`
 done <$menu/radios.txt
-OPTIONS=`cat /tmp/options.$$`
+OPTIONS=`cat $tmp/options.$$`
 
-dialog --title " Online Radio Stations " --column-separator "|" --menu "Choose a station:" $l1 $col $l2 ${OPTIONS} 2> answer
+dialog --title " Online Radio Stations " --column-separator "|" --cancel-label "Back" --menu "Choose a station:" $l1 $col $l2 ${OPTIONS} 2> $tmp/answer
 
 if [ "$?" = "0" ]
 then
-	ch=$(cat answer)
-
+	ch=$(cat $tmp/answer)
+	cmatrix -s -b -C $(cat $ecdir/theme) &
 	mplayer -ao alsa -really-quiet $(cat $menu/radios.txt | sed "$ch!d" | cut -d"|" -f2)
+	pkill cmatrix
 
- rm -f /tmp/options.$$
+ rm -f $tmp/options.$$
 # Cancel is pressed
 else
   exec $ecdir/emucom
 fi
 exec $menu/oradio.sh
-rm -f /tmp/options.$$
+rm -f $tmp/options.$$
 exit
 

@@ -10,14 +10,14 @@ source ./pref.cfg
 #  fi
 
 dialog --backtitle "Poor Mans Home Theater" \
---begin 3 3 --no-tags --menu " Theme Selection " 16 30 9 \
+--begin 3 3 --no-tags --cancel-label "Back" --menu " Theme Selection " 16 30 9 \
 1 "Blue" \
 2 "Red" \
-X "Back to main menu"  2> answer
+X "Back to main menu"  2> $tmp/answer
 
 if [ "$?" = "0" ]
 then
-	ch=$(cat answer)
+	ch=$(cat $tmp/answer)
 	case $ch in
 	# /home is selected
 	  1) rm ~/.dialogrc

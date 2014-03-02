@@ -12,17 +12,17 @@ tty > tty.info
 
 
 dialog --backtitle "Poor Mans Home Theater" \
---no-tags --menu " Restricted Area " 16 30 9 \
+--cancel-label "Back" --no-tags --menu " Restricted Area " 16 30 9 \
 1 "Youporn" \
 2 "Tube8" \
 3 "Redtube" \
 4 "Youjizz" \
 5 "X Video" \
-X "Back to main menu"  2> answer
+X "Back to main menu"  2> $tmp/answer
 
 if [ "$?" = "0" ]
 then
-	ch=$(cat answer)
+	ch=$(cat $tmp/answer)
 	case $ch in
 	# /home is selected
 	  1) exec $menu/youporn.sh;;

@@ -14,37 +14,37 @@ let col=$columns-6
 #    DIALOG=Xdialog
 #  fi
 IFS=$'\n\t'
-ls -1 $nds_roms >/tmp/dirs.$$
+ls -1 $nds_roms >$tmp/dirs.$$
 
-if [ "$(cat /tmp/dirs.$$)" = "" ]
+if [ "$(cat $tmp/dirs.$$)" = "" ]
 then 
   dialog --msgbox "No files found..." 5 30
-  rm -f /tmp/dirs.$$
+  rm -f $tmp/dirs.$$
   unset IFS 
   exec $menu/emulators.sh
 fi
 
 
-sed 's/^.*$/"&"/g' /tmp/dirs.$$
+sed 's/^.*$/"&"/g' $tmp/dirs.$$
 i=1
 while read line
 do
-  echo $line >>/tmp/options.$$
+  echo $line >>$tmp/options.$$
   i=`expr $i + 1`
-done </tmp/dirs.$$
-OPTIONS=`cat /tmp/options.$$`
+done <$tmp/dirs.$$
+OPTIONS=`cat $tmp/options.$$`
 
 # clean up
-rm -f /tmp/dirs.$$
-rm -f /tmp/options.$$
+rm -f $tmp/dirs.$$
+rm -f $tmp/options.$$
 
 # present menu options
-dialog --title "Nintendo DS" --no-items --menu "Please choose a game:" $l1 $col $l2 ${OPTIONS} 2> answer
+dialog --title "Nintendo DS" --cancel-label "Back" --no-items --menu "Please choose a game:" $l1 $col $l2 ${OPTIONS} 2> $tmp/answer
 
 
 if [ "$?" = "0" ]
 then
-	ch=$(cat answer)
+	ch=$(cat $tmp/answer)
 	$nds $nds_roms/$ch
 	exec $menu/nds.sh
 # Cancel is pressed
