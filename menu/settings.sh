@@ -24,6 +24,33 @@ then
 fi
 }
 
+function wiimote() {
+dialog --backtitle "Poor Mans Home Theater" \
+--cancel-label "Back" --no-tags --menu " Wiimote Settings " 16 60 9 \
+1 "Enable Daemon" \
+2 "Kill Daemon" \
+3 "Enable Automatic wiimote search " \
+4 "Disable Automatic wiimote search " 2> $tmp/answer
+
+if [ "$?" = "0" ]
+then
+	ch=$(cat $tmp/answer)
+	case $ch in
+	# /home is selected
+	  1) wminput -d &
+	     clear;;
+	  2) pkill wminput;;
+	  3) touch $ecdir/wiimote_enabled;;
+	  4) rm -f $ecdir/wiimote_enabled;;
+	  *) exec $ecdir/emucom;;
+        esac
+ 
+# Cancel is pressed
+else
+        exec $menu/settings.sh
+fi
+}
+
 
 dialog --backtitle "Poor Mans Home Theater" \
 --begin 3 3 --cancel-label "Back" --no-tags --menu " Settings " 16 30 9 \
@@ -31,6 +58,7 @@ dialog --backtitle "Poor Mans Home Theater" \
 2 "Theme" \
 3 "Update System" \
 4 "Update PMHT" \
+5 "Wiimote" \
 X "Back to main menu"  2> $tmp/answer
 
 if [ "$?" = "0" ]
@@ -54,6 +82,7 @@ then
  	     dialog --msgbox "Executing the install script to apply new packages... This will take a while." 7 50
 	     $ecdir/install.sh
 	     dialog --msgbox "If everything went ok, PMHT is fully upgraded. Enjoy..." 7 50;;
+	  5) wiimote;;
 	  X) exec $ecdir/emucom;;
 	  *) exec $ecdir/emucom;;
         esac

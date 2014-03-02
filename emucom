@@ -13,6 +13,15 @@ fi
 }
 
 
+function autowiimote () {
+if [ -e "$ecdir/wiimote_enabled" ]
+  then
+  wminput -d &
+  clear
+fi
+}
+
+
 
 #tty > tty.info
 #if [ -z $DISPLAY ]
@@ -38,6 +47,8 @@ fi
 }
 
 maximize
+
+autowiimote
 
 dialog --backtitle "Poor Mans Home Theater" \
 --no-cancel --no-tags --menu "Main Menu" 22 40 15 \
