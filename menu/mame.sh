@@ -72,7 +72,7 @@ do
 if [ -e "$mame_roms/$line" ]
   then
   line2=$(echo $line | sed 's/.zip//g')
-  cat $tmp/gamelist.txt | grep $line2 | sed 's/\"//g' >>$tmp/options.mame
+  cat $menu/gamelist.txt | grep $line2 | sed 's/\"//g' >>$tmp/options.mame
 fi
 #  echo $line >>$tmp/options.mame
 #  i=`expr $i + 1`

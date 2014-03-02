@@ -18,6 +18,7 @@ sudo apt-get install -y rsstail
 sudo apt-get install -y cmatrix
 sudo apt-get install -y moc
 sudo apt-get install -y wmctrl
+sudo apt-get install -y git
 sudo rm -f /etc/apt/sources.list.d/sdlmame4ubuntu.*
 sudo add-apt-repository ppa:c.falco/mame
 sudo add-apt-repository ppa:c.falco/umame

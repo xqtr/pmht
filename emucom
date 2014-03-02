@@ -54,7 +54,7 @@ dialog --backtitle "Poor Mans Home Theater" \
 C "Activate Screensaver" \
 S Settings \
 H "Help" \
-X Exit  2> $tmp/answer
+X Exit 2> $tmp/answer
 
 if [ "$?" = "0" ]
 then

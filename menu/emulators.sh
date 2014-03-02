@@ -44,7 +44,7 @@ then
 	  9) infobox "This function is not enabled yet"
 	     exec $menu/emulators.sh;;
 	  10) exec $menu/megadrive.sh;;
-	  11) mame -listfull > $tmp/gamelist.txt
+	  11) mame -listfull > $menu/gamelist.txt
 	      exec $menu/mame.sh;;
 	  12) exec $menu/psx.sh;;
         esac
