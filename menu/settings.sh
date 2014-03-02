@@ -30,6 +30,7 @@ dialog --backtitle "Poor Mans Home Theater" \
 1 "Password" \
 2 "Theme" \
 3 "Update System" \
+4 "Update PMHT" \
 X "Back to main menu"  2> $tmp/answer
 
 if [ "$?" = "0" ]
@@ -45,6 +46,14 @@ then
 	   then
              echo $pass | sudo -S apt-get update && sudo apt-get upgrade
 	   fi;;
+	  4) checkpassword
+	     wget https://github.com/xqtr/pmht/archive/master.zip -O $tmp/update.zip
+	     unzip $tmp/update.zip -d $tmp/
+	     cp -r $tmp/pmht-master/* $ecdir
+	     rm -f -r $tmp/pmht-master/
+ 	     dialog --msgbox "Executing the install script to apply new packages... This will take a while." 7 50
+	     $ecdir/install.sh
+	     dialog --msgbox "If everything went ok, PMHT is fully upgraded. Enjoy..." 7 50;;
 	  X) exec $ecdir/emucom;;
 	  *) exec $ecdir/emucom;;
         esac

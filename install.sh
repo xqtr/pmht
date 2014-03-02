@@ -8,6 +8,7 @@ dialog --title "Installation..." --yesno "Make sure you have edited the pref.cfg
 if [ "$?" = "0" ]
 then
 sudo apt-get install -y libgtk2.0-0:i386
+sudo apt-get install -y libsm6:386
 sudo apt-get install -y zsnes
 sudo apt-get install -y visualboyadvance
 sudo apt-get install -y vbaexpress
@@ -18,7 +19,7 @@ sudo apt-get install -y rsstail
 sudo apt-get install -y cmatrix
 sudo apt-get install -y moc
 sudo apt-get install -y wmctrl
-sudo apt-get install -y git
+sudo apt-get install -y unzip
 sudo rm -f /etc/apt/sources.list.d/sdlmame4ubuntu.*
 sudo add-apt-repository ppa:c.falco/mame
 sudo add-apt-repository ppa:c.falco/umame
