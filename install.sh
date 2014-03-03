@@ -30,7 +30,7 @@ sudo apt-get install -y python-pip python-dev build-essential
 sudo pip install --upgrade pip
 sudo pip install --upgrade virtualenv 
 sudo pip install mps
-sudo pip install pms-youtube
+sudo pip install mps-youtube
 sudo apt-get install -y youtube-dl
 sudo apt-get install rtmpdump
 

@@ -13,8 +13,7 @@ dialog --backtitle "Poor Mans Home Theater" \
 --begin 3 3 --no-tags --cancel-label "Back" --menu " Theme Selection " 16 30 9 \
 1 "Blue" \
 2 "Red" \
-3 "Green" \
-4 "Black" 2> $tmp/answer
+X "Back to main menu"  2> $tmp/answer
 
 if [ "$?" = "0" ]
 then
@@ -23,12 +22,9 @@ then
 	# /home is selected
 	  1) rm ~/.dialogrc
 	     echo blue > $ecdir/theme;;
-	  2) cp $menu/red-dialogrc ~/.dialogrc
+	  2) cp $menu/.dialogrc ~/.dialogrc
 	     echo red > $ecdir/theme;;
-	  3) cp $menu/green-dialogrc ~/.dialogrc
-	     echo green > $ecdir/theme;;
-	  4) cp $menu/black-dialogrc ~/.dialogrc
-	     echo black > $ecdir/theme;;
+	  X) exec $menu/settings.sh;;
 	  *) exec $menu/settings.sh;;
         esac
  

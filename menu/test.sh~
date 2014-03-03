@@ -1,0 +1,17 @@
+#!/bin/bash
+# build dynamic menu options
+ls -1 /usr/test >/tmp/dirs.$$
+i=1
+while read line
+do
+  echo $i $line >>/tmp/options.$$
+  i=`expr $i + 1`
+done </tmp/dirs.$$
+OPTIONS=`cat /tmp/options.$$`
+
+# clean up
+rm -f /tmp/dirs.$$
+rm -f /tmp/options.$$
+
+# present menu options
+dialog --title "Title goes here" --menu "Please choose an option:" 11 40 3 ${OPTIONS} 2>/tmp/ans.$$

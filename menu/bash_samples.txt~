@@ -1,0 +1,62 @@
+ cat radios.xml | sed -n '/<area name=\"SALONICA*/,/\t<\/area>/p'
+
+
+categories --> cat radios.xml | grep "<area name" | cut -d "\"" -f2
+
+lower case
+| sed 's/\b\([[:alpha:]]\)\([[:alpha:]]*\)\b/\u\1\L\2/g
+
+
+file_menu() {
+    fileroot=$HOME
+    IFS_BAK=$IFS
+    IFS=$'\n' # wegen Filenamen mit Blanks
+    array=( $(ls $fileroot) )
+    n=0
+    for item in ${array[@]}
+    do
+        menuitems="$menuitems $n ${item// /_}" # subst. Blanks with "_"  
+        let n+=1
+    done
+    IFS=$IFS_BAK
+    dialog --backtitle "Dialog - Sample menu with variable items" \
+           --title "Select a file" --menu \
+           "Choose one of the menu points" 16 40 8 $menuitems 2> $_temp
+    if [ $? -eq 0 ]; then
+        item=`cat $_temp`
+        selection=${array[$(cat $_temp)]}
+        dialog --msgbox "You choose:\nNo. $item --> $selection" 6 42
+    fi
+}
+
+
+#!/bin/bash
+
+MENU_OPTIONS=
+COUNT=0
+
+for i in `ls`
+do
+       COUNT=$[COUNT+1]
+       MENU_OPTIONS="${MENU_OPTIONS} ${COUNT} $i off "
+done
+cmd=(dialog --separate-output --checklist "Select options:" 22 76 16)
+options=(${MENU_OPTIONS})
+choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+for choice in $choices
+do
+    case $choice in
+        1)
+            echo "First Option"
+            ;;
+        2)
+            echo "Second Option"
+            ;;
+        3)
+            echo "Third Option"
+            ;;
+        4)
+            echo "Fourth Option"
+            ;;
+    esac
+done

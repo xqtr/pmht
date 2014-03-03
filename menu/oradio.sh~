@@ -24,7 +24,7 @@ dialog --title " Online Radio Stations " --column-separator "|" --cancel-label "
 if [ "$?" = "0" ]
 then
 	ch=$(cat $tmp/answer)
-	cmatrix -s -b -C $(cat $ecdir/theme) &
+	cmatrix -s -b -C $(cat $menu/theme) &
 	mplayer -ao alsa -really-quiet $(cat $menu/radios.txt | sed "$ch!d" | cut -d"|" -f5)
 	pkill cmatrix
 

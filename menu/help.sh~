@@ -14,14 +14,10 @@ function mplayerinfo() {
 dialog --cr-wrap --title " MPlayer Keys " --textbox $ecdir/guides/mplayer_keys.txt $l1 $col 
 }
 
-function wiimote() {
-dialog --cr-wrap --title " Wiimote Install " --textbox $ecdir/guides/wiimote.txt $l1 $col 
-}
-
 dialog --backtitle "Poor Mans Home Theater" \
 --cancel-label "Back" --no-tags --menu " Help " 16 30 9 \
 1 "Mplayer Keys" \
-2 "Wiimote Install"  2> $tmp/answer
+X "Back"  2> $tmp/answer
 
 if [ "$?" = "0" ]
 then
@@ -29,7 +25,7 @@ then
 	case $ch in
 	# /home is selected
 	  1) mplayerinfo;;
-	2) wiimote;;
+	  X) exec $ecdir/emucom;;
 	  *) exec $ecdir/emucom;;
         esac
  
