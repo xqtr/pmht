@@ -76,8 +76,7 @@ then
           2) exec $menu/rss.sh;;
 	  3) exec $menu/movies.sh;;
 	  4) exec $menu/music.sh;;
-	  5) mpsyt
-	     exec $ecdir/emucom;;
+	  5) exec $menu/youtube.sh;;
 	  6) mps
 	     exec $ecdir/emucom;;
 	  7) checkpassword

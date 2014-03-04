@@ -20,6 +20,7 @@ sudo apt-get install -y cmatrix
 sudo apt-get install -y moc
 sudo apt-get install -y wmctrl
 sudo apt-get install -y unzip
+sudo apt-get install -y libnotify-bin
 sudo rm -f /etc/apt/sources.list.d/sdlmame4ubuntu.*
 sudo add-apt-repository ppa:c.falco/mame
 sudo add-apt-repository ppa:c.falco/umame
